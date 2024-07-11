@@ -1,13 +1,13 @@
-pub mod constants;
-pub mod error;
-pub mod instructions;
-pub mod state;
+use {
+    anchor_lang::prelude::*,
+    
+    crate::instructions::*
+};
 
-use anchor_lang::prelude::*;
+mod collections;
+mod instructions;
+mod error;
 
-pub use constants::*;
-pub use instructions::*;
-pub use state::*;
 
 declare_id!("7Vw3DhQ98R5ke8WxARHWmNmZT11zg3AZ8LxuNEmGkrB7");
 
@@ -15,7 +15,11 @@ declare_id!("7Vw3DhQ98R5ke8WxARHWmNmZT11zg3AZ8LxuNEmGkrB7");
 pub mod flow {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    pub fn create_event(
+        ctx: Context<CreateEvent>,
+        nombre: String,
+        precio_ticket: u64,
+    ) -> Result<()> {
+        instructions::create_event::handler(ctx, nombre, precio_ticket)
     }
 }
