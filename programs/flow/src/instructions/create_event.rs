@@ -1,8 +1,8 @@
 use {
-    crate::collections::Event,
     anchor_lang::prelude::*,
     anchor_spl::token::*,
-
+    
+    crate::collections::Event,
 };
 
 #[derive(Accounts)]

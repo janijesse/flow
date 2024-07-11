@@ -66,10 +66,7 @@ pub struct Sponsor<'info> {
     pub tesoreria: Box<Account<'info, TokenAccount>>,
 }
 
-pub fn handler(
-    ctx: Context<Sponsor>,
-    cantidad: u64,
-  ) -> Result<()> {
+pub fn handler(ctx: Context<Sponsor>, cantidad: u64) -> Result<()> {
 
     let seeds = [
         Event::SEED_EVENTO.as_bytes(),
