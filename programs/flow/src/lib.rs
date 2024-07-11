@@ -7,6 +7,7 @@ use {
 mod collections;
 mod instructions;
 mod error;
+mod utils;
 
 
 declare_id!("7Vw3DhQ98R5ke8WxARHWmNmZT11zg3AZ8LxuNEmGkrB7");
@@ -29,5 +30,17 @@ pub mod flow {
 
     pub fn buy_tickets (ctx: Context<BuyTickets>, cantidad: u64) -> Result<()> {
         instructions::buy_tickets::handler(ctx, cantidad)
+    }
+
+     pub fn withdraw_funds(ctx: Context<WithdrawFunds>, cantidad: u64) -> Result<()> {
+        instructions::withdraw_funds::handle(ctx, cantidad)
+    }
+
+    pub fn close_event (ctx: Context<CloseEvent>) -> Result<()> {
+        instructions::close_event::handler(ctx)
+    }
+
+    pub fn withdraw_earnings(ctx: Context<WithdrawEarnings>) -> Result<()> {
+        instructions::withdraw_earnings::handler(ctx)
     }
 }
