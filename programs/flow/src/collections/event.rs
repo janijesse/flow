@@ -14,13 +14,13 @@ pub struct Event {
 
     // Cuentas
     pub organizador: Pubkey, // authority
-    pub moneda_pago: Pubkey,
+    pub moneda_pago: Pubkey, //accepted mint
 
     // bumps de la PDAs
     pub bump_evento: u8,
-    pub bump_flow_token: u8,
-    pub bump_tesoreria: u8,
-    pub bump_boveda_ganancias: u8,
+    pub bump_flow_token: u8, // event mint
+    pub bump_tesoreria: u8, // ganancias de los sponsors
+    pub bump_boveda_ganancias: u8, // ganancias de la venta de tickets
 }
 
 impl Event {

@@ -22,4 +22,8 @@ pub mod flow {
     ) -> Result<()> {
         instructions::create_event::handler(ctx, nombre, precio_ticket)
     }
+
+     pub fn sponsor_event (ctx: Context<Sponsor>, cantidad: u64) -> Result<()> {
+        instructions::sponsor::handler(ctx, cantidad)
+    }
 }
